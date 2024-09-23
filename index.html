@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 10px;
+            background: linear-gradient(90deg, #173DB7, #31A8D7);
+            color: #FFF;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .list-item {
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #FFF;
+            background: linear-gradient(90deg, #173DB7, #173D97);
+            border-radius: 5px ;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">PLANO DE AÇÕES SESAU - Unidades de Saúde da Família</h1>
+        <img src="./logo.png" alt="" class="logo">
+    </header>
+</body>
+    <main class="main">
+        
+    </main>
+    <script>
+        const BASE_URL = "https://n8n-datalakepcr.recife.pe.gov.br/webhook/"
+        const base_list = [
+            "USF Santo Amaro I Sítio do Céu",
+            "USF Coelhos II - DSI",
+            "USF Coque - DSI",
+            "USF Alto do Céu - DSII",
+            "USF Bianor Teodósio - DSII",
+            "USF Córrego do Curió - DSII",
+            "USF Ilha de Joaneiro - DSII",
+            "USF Dra. Fernanda Wanderley - D",
+            "USF Ponto de Parada - DSII",
+            "USF Monteiro de Morais - DSII",
+            "USF do Chié - DSII",
+            "USF Roda de Fogo (Macaé) - DSIV",
+            "USF Rosa Selvagem - DSIV",
+            "USF Jardim Uchôa - DSV",
+            "USF Bongi Novo Prado - DSV",
+            "USF Bongi Boa Ideia - DSV",
+            "USF Dancing Days - DSVI",
+            "USF Córrego da Bica - DSVII",
+            "USF da Macaxeira - DSVII",
+            "USF Passarinho Baixo - DSVII",
+            "USF Água Viva - DSVIII",
+            "USF Cidade Operária - DSVIII",
+            "USF Rio da Prata - DSVIII",
+            "USF Sebastião Ivo Rabelo - DSVI",
+            "USF Três Carneiros de Baixo Zum",
+            "USF UR10 - DSVIII", 
+        ]
+       //https://n8n-datalakepcr.recife.pe.gov.br/webhook/USF_Água_Viva_-_DSVIII
+
+        const main = document.querySelector(".main")
+
+        base_list.forEach(bl => {
+            const a = document.createElement("a")
+            const url =  BASE_URL + bl.replaceAll(" ", "_")
+            a.setAttribute("href", url)
+            a.setAttribute("download", "")
+            a.setAttribute("class", "list-item")
+            a.innerText = `${bl}`
+            
+            console.log(url, bl)
+
+            main.appendChild(a)
+        })
+
+
+    </script>
+</html>
