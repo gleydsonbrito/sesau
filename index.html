@@ -31,21 +31,36 @@
         }
 
         .main {
-            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 colunas iguais */
+            gap: 10px; /* Espaço entre os cards */
             padding-top: 20px;
+            width: 80%;
         }
 
         .list-item {
-            margin-bottom: 10px;
             text-decoration: none;
             color: #FFF;
-            background: linear-gradient(90deg, #173DB7, #173D97);
-            border-radius: 5px ;
-            padding: 5px;
+            background-color: #1e5ac0;
+            border-radius: 5px;
+            padding: 20px; /* Aumente o padding para um card mais "cheio" */
+            display: flex; /* Para centralizar o conteúdo */
+            align-items: center; /* Alinhamento vertical */
+            justify-content: center; /* Alinhamento horizontal */
+            box-shadow: 3px 3px 5px grey;
+        }
+
+        .list-item:hover {
+            font-weight: bold;
+            color: #173DBB;
+            background-color: rgb(255, 255, 118);
         }
     </style>
 </head>
@@ -56,6 +71,9 @@
     </header>
 </body>
     <main class="main">
+        <div class="grid-container">
+
+        </div>
         
     </main>
     <script>
@@ -88,9 +106,9 @@
             "USF Três Carneiros de Baixo Zum",
             "USF UR10 - DSVIII", 
         ]
-       //https://n8n-datalakepcr.recife.pe.gov.br/webhook/USF_Água_Viva_-_DSVIII
+        //https://n8n-datalakepcr.recife.pe.gov.br/webhook/USF_Água_Viva_-_DSVIII
 
-        const main = document.querySelector(".main")
+        const container = document.querySelector(".grid-container")
 
         base_list.forEach(bl => {
             const a = document.createElement("a")
@@ -102,9 +120,7 @@
             
             console.log(url, bl)
 
-            main.appendChild(a)
+            container.appendChild(a)
         })
-
-
     </script>
 </html>
